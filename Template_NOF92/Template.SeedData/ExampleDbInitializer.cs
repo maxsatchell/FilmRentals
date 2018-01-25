@@ -12,15 +12,27 @@ namespace Template.SeedData
         protected override void Seed(ExampleDbContext context)
         {
             this.Context = context;
-            AddNewStudent("Alie Algol");
-            AddNewStudent("Forrest Fortran");
-            AddNewStudent("James Java");
+            AddNewStudent("Forest Gump");
+            AddNewStudent("Jumanji");
+            AddNewStudent("Top Gun");
+
+            AddNewCustomer("Bill Hanson");
+            AddNewCustomer("Rikky Bobby");
+            AddNewCustomer("Carl JR");
+
         }
 
-        private void AddNewStudent(string name)
+        private void AddNewStudent(string filmtitle)
         {
-            var st = new Student() { FullName = name };
-            Context.Students.Add(st);
+            var film = new Films() { FilmTitle = filmtitle };
+            Context.Films.Add(film);
         }
+
+        private void AddNewCustomer(string name)
+        {
+            var customer= new Customer() { Name = name };
+            Context.Customers.Add(customer);
+        }
+
     }
 }

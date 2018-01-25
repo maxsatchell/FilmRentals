@@ -11,7 +11,8 @@ namespace Template.DataBase
             Database.SetInitializer(initializer);
         }
 
-        public DbSet<Student> Students { get; set; }
+        public DbSet<Films> Films { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 
 }

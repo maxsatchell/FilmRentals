@@ -2,7 +2,7 @@
 
 namespace Template.Model
 {
-    public class Student
+    public class Films
     {
         //All persisted properties on a domain object must be 'virtual'
 
@@ -10,6 +10,6 @@ namespace Template.Model
         public virtual int Id { get; set; }
 
         [Title]//This property will be used for the object's title at the top of the view and in a link
-        public virtual string FullName { get; set; }
+        public virtual string FilmTitle { get; set; }
     }
 }
