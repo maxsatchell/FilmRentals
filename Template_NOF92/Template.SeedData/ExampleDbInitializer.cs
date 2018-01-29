@@ -24,7 +24,7 @@ namespace Template.SeedData
 
         private void AddNewStudent(string filmtitle)
         {
-            var film = new Films() { FilmTitle = filmtitle };
+            var film = new Film() { FilmTitle = filmtitle };
             Context.Films.Add(film);
         }
 
