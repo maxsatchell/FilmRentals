@@ -13,21 +13,21 @@ namespace Template.Model
         //An implementation of this interface is injected automatically by the framework
         public IDomainObjectContainer Container { set; protected get; }
         #endregion
-        public Films CreateNewFilm()
+        public Film CreateNewFilm()
         {
             //'Transient' means 'unsaved' -  returned to the user
             //for fields to be filled-in and the object saved.
-            return Container.NewTransientInstance<Films>();
+            return Container.NewTransientInstance<Film>();
         }
 
-        public IQueryable<Films> AllFilms()
+        public IQueryable<Film> AllFilms()
         {
             //The 'Container' masks all the complexities of 
             //dealing with the database directly.
-            return Container.Instances<Films>();
+            return Container.Instances<Film>();
         }
 
-        public IQueryable<Films> FindFilmByName(string name)
+        public IQueryable<Film> FindFilmByName(string name)
         {
             //Filters students to find a match
             return AllFilms().Where(c => c.FilmTitle.ToUpper().Contains(name.ToUpper()));

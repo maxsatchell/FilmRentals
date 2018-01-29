@@ -2,7 +2,7 @@
 
 namespace Template.Model
 {
-    public class Films
+    public class Film
     {
         //All persisted properties on a domain object must be 'virtual'
 
