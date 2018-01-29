@@ -4,4 +4,5 @@
 **/nakedobjects_log*.*
 *.dll
 *.zip
-
+**/.vs
+*.suo
