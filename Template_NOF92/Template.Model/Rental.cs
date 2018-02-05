@@ -14,13 +14,13 @@ namespace Template.Model
         [NakedObjectsIgnore]//Indicates that this property will never be seen in the UI
         public virtual int RentalID { get; set; }
 
-        public decimal price { get; set; }
-        public DateTime DateOut { get; set; }
-        public DateTime DateReturned { get; set; }
-        public DateTime DateReturnBy { get; set; }
+        public virtual decimal price { get; set; }
+        public virtual DateTime DateOut { get; set; }
+        public virtual DateTime DateReturned { get; set; }
+        public virtual DateTime DateReturnBy { get; set; }
 
-        public Customer Customer { get; set; }
-        public Film Film { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Film Film { get; set; }
 
     }
 }
