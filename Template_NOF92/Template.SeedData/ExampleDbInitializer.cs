@@ -15,11 +15,15 @@ namespace Template.SeedData
             this.Context = context;
             var fg =  AddNewFilm("Forest Gump");
             var ju = AddNewFilm("Jumanji");
-            AddNewFilm("Top Gun");
+            var tg= AddNewFilm("Top Gun");
 
             var bh = AddNewCustomer("Bill Hanson");
-            AddNewCustomer("Rikky Bobby");
-            AddNewCustomer("Carl JR");
+            var rb =AddNewCustomer("Rikky Bobby");
+            var cj = AddNewCustomer("Carl JR");
+
+            AddNewRental(bh, fg);
+            AddNewRental(rb, ju);
+            AddNewRental(cj, fg);
 
         }
 
@@ -39,9 +43,9 @@ namespace Template.SeedData
             return customer;
         }
 
-        private Rental AddNewRental(Customer bh, Film fg)
+        private Rental AddNewRental(Customer customer, Film film)
         {
-            var Rental = new Rental() { Customer = bh, Film = fg };
+            var Rental = new Rental() { Customer = customer, Film = film };
             Context.Rentals.Add(Rental);
             Context.SaveChanges();
             return Rental;
