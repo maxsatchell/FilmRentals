@@ -1,4 +1,5 @@
 ﻿using NakedObjects;
+using System;
 
 namespace Template.Model
 {
@@ -11,5 +12,11 @@ namespace Template.Model
 
         [Title]//This property will be used for the object's title at the top of the view and in a link
         public virtual string FilmTitle { get; set; }
+
+        [Optionally]
+        public virtual string Genre { get; set; }
+        public virtual string Director { get; set; }
+        public virtual DateTime? DateReleased { get; set; }
+
     }
 }
