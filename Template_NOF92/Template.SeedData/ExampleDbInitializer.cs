@@ -6,7 +6,7 @@ using Template.Model;
 
 namespace Template.SeedData
 {
-    public class ExampleDbInitializer : DropCreateDatabaseIfModelChanges<ExampleDbContext>
+    public class ExampleDbInitializer : DropCreateDatabaseAlways<ExampleDbContext>
     {
         private ExampleDbContext Context;
         protected override void Seed(ExampleDbContext context)
@@ -23,7 +23,7 @@ namespace Template.SeedData
 
             AddNewRental(bh, fg);
             AddNewRental(rb, ju);
-            AddNewRental(cj, fg);
+            AddNewRental(cj, tg);
 
  
         }
@@ -46,7 +46,7 @@ namespace Template.SeedData
 
         private Rental AddNewRental(Customer customer, Film film)
         {
-            var Rental = new Rental() { Customer = customer, Film = film };
+            var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID };
             Context.Rentals.Add(Rental);
             Context.SaveChanges();
             return Rental;
