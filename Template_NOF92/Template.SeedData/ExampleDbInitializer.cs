@@ -21,6 +21,7 @@ namespace Template.SeedData
             AddNewCustomer("Rikky Bobby");
             AddNewCustomer("Carl JR");
 
+ 
         }
 
         private Film AddNewFilm(string filmtitle)
