@@ -7,7 +7,7 @@ using NakedObjects;
 
 namespace Template.Model
 {
-    class RentalService
+    public class RentalService
     {
         #region Injected Services
         //An implementation of this interface is injected automatically by the framework
