@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Template.DataBase;
@@ -13,24 +14,24 @@ namespace Template.SeedData
         {
 
             this.Context = context;
-            var fg =  AddNewFilm("Forest Gump");
-            var ju = AddNewFilm("Jumanji");
-            var tg= AddNewFilm("Top Gun");
+            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama");
+            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy");
+            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action");
 
             var bh = AddNewCustomer("Bill Hanson");
             var rb =AddNewCustomer("Rikky Bobby");
             var cj = AddNewCustomer("Carl JR");
 
-            AddNewRental(bh, fg);
-            AddNewRental(rb, ju);
-            AddNewRental(cj, tg);
+            AddNewRental(bh, fg,12.99m, new DateTime(2018,03,18),new DateTime(2018,05,18));
+            AddNewRental(rb, ju,10.99m, new DateTime(2018,01,21), new DateTime(2018,02,24));
+            AddNewRental(cj, tg,15.99m, new DateTime(2018,05,02), new DateTime(2018,07,28));
 
- 
+
         }
 
-        private Film AddNewFilm(string filmtitle)
+        private Film AddNewFilm(string filmtitle,string director,string genre)
         {
-            var film = new Film() { FilmTitle = filmtitle };
+            var film = new Film() { FilmTitle = filmtitle, Director = director, Genre = genre };
             Context.Films.Add(film);
             Context.SaveChanges();
             return film;
@@ -44,11 +45,11 @@ namespace Template.SeedData
             return customer;
         }
 
-        private Rental AddNewRental(Customer customer, Film film)
+        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned)
         {
-            var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID };
+            var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID, Price = price,DateOut = dateout,DateReturned = datereturned };
             Context.Rentals.Add(Rental);
-            Context.SaveChanges();
+            Context.SaveChanges(); 
             return Rental;
         }
 
