@@ -27,6 +27,11 @@ namespace Template.Model
             return Container.Instances<Rental>();
         }
 
-        
+        public IQueryable<Rental> OverdueRentals(DateTime DateReturnBy)
+        {
+            return Container.Instances<Rental>().Where(r => r.DateReturnBy >= DateTime.Today);
+        }
+
+
     }
 }

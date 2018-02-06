@@ -22,9 +22,9 @@ namespace Template.SeedData
             var rb =AddNewCustomer("Rikky Bobby");
             var cj = AddNewCustomer("Carl JR");
 
-            AddNewRental(bh, fg,12.99m, new DateTime(2018,03,18),new DateTime(2018,05,18));
-            AddNewRental(rb, ju,10.99m, new DateTime(2018,01,21), new DateTime(2018,02,24));
-            AddNewRental(cj, tg,15.99m, new DateTime(2018,05,02), new DateTime(2018,07,28));
+            AddNewRental(bh, fg,12.99m, new DateTime(2018,03,18),new DateTime(2018,05,18),new DateTime(2018,02,06));
+            AddNewRental(rb, ju,10.99m, new DateTime(2018,01,21), new DateTime(2018,01,01), new DateTime(2018,02,08));
+            AddNewRental(cj, tg,15.99m, new DateTime(2018,05,02), new DateTime(2018,07,28), new DateTime(2018,03,01));
 
 
         }
@@ -45,9 +45,9 @@ namespace Template.SeedData
             return customer;
         }
 
-        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned)
+        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned, DateTime datereturnby)
         {
-            var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID, Price = price,DateOut = dateout,DateReturned = datereturned };
+            var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID, Price = price,DateOut = dateout,DateReturned = datereturned, DateReturnBy = datereturnby };
             Context.Rentals.Add(Rental);
             Context.SaveChanges(); 
             return Rental;
