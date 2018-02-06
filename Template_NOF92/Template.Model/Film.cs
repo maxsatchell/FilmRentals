@@ -1,4 +1,5 @@
 ﻿using NakedObjects;
+using NakedObjects.Value;
 using System;
 
 namespace Template.Model
@@ -17,6 +18,32 @@ namespace Template.Model
         public virtual string Genre { get; set; }
         public virtual string Director { get; set; }
         public virtual DateTime? DateReleased { get; set; }
+
+        public virtual FileAttachment Image
+        {
+            get
+            {
+                if (AttContent == null) return null;
+                return new FileAttachment(AttContent, AttName, AttMime);
+            }
+        }
+
+        [NakedObjectsIgnore]
+        public virtual byte[] AttContent { get; set; }
+
+        [NakedObjectsIgnore]
+        public virtual string AttName { get; set; }
+
+        [NakedObjectsIgnore]
+        public virtual string AttMime { get; set; }
+
+        public void AddOrChangeImage(FileAttachment newImage)
+        {
+            AttContent = newImage.GetResourceAsByteArray();
+            AttName = newImage.Name;
+            AttMime = newImage.MimeType;
+        }
+
 
     }
 }
