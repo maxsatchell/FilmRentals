@@ -9,12 +9,23 @@ namespace Template.Model
 {
     public class Rental
     {
-        
+        #region injected services 
+        public IDomainObjectContainer Container { protected get; set; }
+#endregion
 
         [NakedObjectsIgnore]//Indicates that this property will never be seen in the UI
         public virtual int RentalID { get; set; }
 
-        public virtual decimal price { get; set; }
+        public string Title()
+        {
+            var t = Container.NewTitleBuilder();
+            t.Append(Customer).Append("Rental of").Append(Film);
+            return t.ToString();
+        }
+
+
+
+        public virtual decimal Price { get; set; }
         public virtual DateTime? DateOut { get; set; }
         public virtual DateTime? DateReturned { get; set; }
         public virtual DateTime? DateReturnBy { get; set; }
