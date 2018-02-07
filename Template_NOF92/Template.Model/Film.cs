@@ -1,4 +1,5 @@
 ﻿using NakedObjects;
+using NakedObjects.Redirect;
 using NakedObjects.Value;
 using System;
 
@@ -18,6 +19,7 @@ namespace Template.Model
         public virtual string Genre { get; set; }
         public virtual string Director { get; set; }
         public virtual DateTime? DateReleased { get; set; }
+        public virtual string Trailer { get; set; }
 
         public virtual FileAttachment Image
         {

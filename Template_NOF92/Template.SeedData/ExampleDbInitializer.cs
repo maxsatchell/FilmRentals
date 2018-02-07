@@ -14,9 +14,9 @@ namespace Template.SeedData
         {
 
             this.Context = context;
-            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama");
-            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy");
-            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action");
+            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama", "https://www.youtube.com/watch?v=bLvqoHBptjg");
+            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy", "https://www.youtube.com/watch?v=bLvqoHBptjg");
+            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action", "https://www.youtube.com/watch?v=bLvqoHBptjg");
 
             var bh = AddNewCustomer("Bill Hanson");
             var rb =AddNewCustomer("Rikky Bobby");
@@ -29,9 +29,9 @@ namespace Template.SeedData
 
         }
 
-        private Film AddNewFilm(string filmtitle,string director,string genre)
+        private Film AddNewFilm(string filmtitle,string director,string genre,string trailer)
         {
-            var film = new Film() { FilmTitle = filmtitle, Director = director, Genre = genre };
+            var film = new Film() { FilmTitle = filmtitle, Director = director, Genre = genre,Trailer = trailer };
             Context.Films.Add(film);
             Context.SaveChanges();
             return film;
@@ -45,7 +45,7 @@ namespace Template.SeedData
             return customer;
         }
 
-        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned, DateTime datereturnby)
+        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned)
         {
             var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID, Price = price,DateOut = dateout,DateReturned = datereturned, DateReturnBy = datereturnby };
             Context.Rentals.Add(Rental);
