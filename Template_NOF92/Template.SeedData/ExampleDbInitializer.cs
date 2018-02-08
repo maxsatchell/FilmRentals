@@ -14,9 +14,9 @@ namespace Template.SeedData
         {
 
             this.Context = context;
-            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama", "https://www.youtube.com/watch?v=bLvqoHBptjg","12",new DateTime(2014, 03, 15));
-            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy", "https://www.youtube.com/watch?v=bLvqoHBptjg","PG", new DateTime(2018, 02, 06));
-            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action", "https://www.youtube.com/watch?v=bLvqoHBptjg","15", new DateTime(1995, 02, 07));
+            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama", "https://www.youtube.com/watch?v=bLvqoHBptjg",12,new DateTime(2014, 03, 15));
+            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy", "https://www.youtube.com/watch?v=bLvqoHBptjg",15, new DateTime(2018, 02, 06));
+            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action", "https://www.youtube.com/watch?v=bLvqoHBptjg",18, new DateTime(1995, 02, 07));
 
             var bh = AddNewCustomer("Bill Hanson", 24);
             var rb =AddNewCustomer("Rikky Bobby", 17);
@@ -30,7 +30,7 @@ namespace Template.SeedData
         }
 
 
-        private Film AddNewFilm(string filmtitle,string director,string genre,string trailer,string rating,DateTime datereleased)
+        private Film AddNewFilm(string filmtitle,string director,string genre,string trailer,int rating,DateTime datereleased)
         {
             var film = new Film() { FilmTitle = filmtitle, Director = director, Genre = genre, Trailer = trailer, Rating = rating, DateReleased = datereleased };
             Context.Films.Add(film);

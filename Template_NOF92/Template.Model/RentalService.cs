@@ -42,6 +42,10 @@ namespace Template.Model
            
             return AllRentals().Where(c => c.Film.FilmTitle.ToUpper().Contains(name.ToUpper()));
         }
+        public IQueryable<Rental> FindRentalByRating(int rating)
+        {
+            return AllRentals().Where(c => c.Film.Rating.Equals(rating));
+        }
 
 
     }
