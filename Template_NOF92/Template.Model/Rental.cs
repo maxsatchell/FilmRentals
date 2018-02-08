@@ -22,9 +22,11 @@ namespace Template.Model
             t.Append(Customer).Append("Rental of").Append(Film);
             return t.ToString();
         }
-
+        [MemberOrder(10)]
         public virtual decimal Price { get; set; }
+        [MemberOrder(20)]
         public virtual DateTime? DateOut { get; set; }
+        [MemberOrder(30)]
         public virtual DateTime? DateReturnBy { get; set; }
 
         [Hidden(WhenTo.UntilPersisted)]
@@ -33,9 +35,11 @@ namespace Template.Model
 
         [NakedObjectsIgnore]
         public virtual int CustomerID { get; set; }
+        [MemberOrder(40)]
         public virtual Customer Customer { get; set; }
         [NakedObjectsIgnore]
         public virtual int FilmID { get; set; }
+        [MemberOrder(50)]
         public virtual Film Film { get; set; }
 
         public string Validate(Film film, Customer customer)
