@@ -20,7 +20,7 @@ namespace Template.Model
         public virtual string Director { get; set; }
         public virtual DateTime? DateReleased { get; set; }
         public virtual string Trailer { get; set; }
-        public virtual string Rating { get; set; }
+        public virtual int Rating { get; set; }
         
 
         public virtual FileAttachment Image

@@ -25,8 +25,11 @@ namespace Template.Model
 
         public virtual decimal Price { get; set; }
         public virtual DateTime? DateOut { get; set; }
-        public virtual DateTime? DateReturned { get; set; }
         public virtual DateTime? DateReturnBy { get; set; }
+
+        [Hidden(WhenTo.UntilPersisted)]
+        public virtual DateTime? DateReturned { get; set; }
+        
 
         [NakedObjectsIgnore]
         public virtual int CustomerID { get; set; }
@@ -34,6 +37,14 @@ namespace Template.Model
         [NakedObjectsIgnore]
         public virtual int FilmID { get; set; }
         public virtual Film Film { get; set; }
+
+        public string Validate(Film film, Customer customer)
+        {
+            var rb = new ReasonBuilder();
+            rb.AppendOnCondition(film.Rating >= customer.Age, "Not Old Enough");
+            return rb.Reason;
+        }
+
 
     }
 }

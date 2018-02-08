@@ -14,9 +14,9 @@ namespace Template.SeedData
         {
 
             this.Context = context;
-            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama", "https://www.youtube.com/watch?v=bLvqoHBptjg","12");
-            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy", "https://www.youtube.com/watch?v=bLvqoHBptjg","PG");
-            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action", "https://www.youtube.com/watch?v=bLvqoHBptjg","15");
+            var fg =  AddNewFilm("Forest Gump","Stephan Speilberger","Drama", "https://www.youtube.com/watch?v=bLvqoHBptjg",15);
+            var ju = AddNewFilm("Jumanji","Micheal bay","Comedy", "https://www.youtube.com/watch?v=bLvqoHBptjg",12);
+            var tg= AddNewFilm("Top Gun","Kelly Holmes","Action", "https://www.youtube.com/watch?v=bLvqoHBptjg",18);
 
             var bh = AddNewCustomer("Bill Hanson", 24);
             var rb =AddNewCustomer("Rikky Bobby", 17);
@@ -30,7 +30,7 @@ namespace Template.SeedData
         }
 
 
-        private Film AddNewFilm(string filmtitle,string director,string genre,string trailer,string rating)
+        private Film AddNewFilm(string filmtitle,string director,string genre,string trailer,int rating)
         {
             var film = new Film() { FilmTitle = filmtitle, Director = director, Genre = genre,Trailer = trailer,Rating = rating };
             Context.Films.Add(film);
