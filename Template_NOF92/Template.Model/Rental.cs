@@ -23,8 +23,6 @@ namespace Template.Model
             return t.ToString();
         }
 
-
-
         public virtual decimal Price { get; set; }
         public virtual DateTime? DateOut { get; set; }
         public virtual DateTime? DateReturned { get; set; }

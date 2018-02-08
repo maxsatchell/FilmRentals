@@ -34,9 +34,11 @@ namespace Template.Model
             return AllFilms().Where(c => c.FilmTitle.ToUpper().Contains(name.ToUpper()));
         }
 
-        public IQueryable<Film> AllFilmsThisYear(DateTime DateReleased)
+        public IQueryable<Film> AllFilmsThisYear()
         {
-            return Container.Instances<Film>().Where(f => f.DateReleased == DateTime.Now); //Needs to be 1/1/2018
+            int year = DateTime.Today.Year;
+
+            return Container.Instances<Film>().Where(f => f.DateReleased.Value.Year == year); 
         }
 
 

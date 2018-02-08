@@ -18,11 +18,11 @@ namespace Template.SeedData
             var ju = AddNewFilm("Jumanji","Micheal bay","Comedy", "https://www.youtube.com/watch?v=bLvqoHBptjg");
             var tg= AddNewFilm("Top Gun","Kelly Holmes","Action", "https://www.youtube.com/watch?v=bLvqoHBptjg");
 
-            var bh = AddNewCustomer("Bill Hanson");
-            var rb =AddNewCustomer("Rikky Bobby");
-            var cj = AddNewCustomer("Carl JR");
+            var bh = AddNewCustomer("Bill Hanson", 24);
+            var rb =AddNewCustomer("Rikky Bobby", 17);
+            var cj = AddNewCustomer("Carl JR",15);
 
-            AddNewRental(bh, fg,12.99m, new DateTime(2018,03,18),new DateTime(2018,05,18),new DateTime(2018,02,06));
+            AddNewRental(bh, fg,12.99m, new DateTime(2018,03,18),new DateTime(2018,05,18),new DateTime(2014,02,06));
             AddNewRental(rb, ju,10.99m, new DateTime(2018,01,21), new DateTime(2018,01,01), new DateTime(2018,02,08));
             AddNewRental(cj, tg,15.99m, new DateTime(2018,05,02), new DateTime(2018,07,28), new DateTime(2018,03,01));
 
@@ -37,9 +37,9 @@ namespace Template.SeedData
             return film;
         }
 
-        private Customer AddNewCustomer(string name)
+        private Customer AddNewCustomer(string name, int age)
         {
-            var customer= new Customer() { Name = name };
+            var customer= new Customer() { Name = name, Age = age};
             Context.Customers.Add(customer);
             Context.SaveChanges();
             return customer;
