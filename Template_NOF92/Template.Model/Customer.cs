@@ -18,5 +18,21 @@ namespace Template.Model
 
         public virtual int Age { get; set; }
 
+        private ICollection<Rental> myRentals = new List<Rental>();
+
+        public virtual ICollection<Rental> Rentals
+        {
+            get
+            {
+                return myRentals;
+            }
+            set
+            {
+                myRentals = value;
+            }
+        }
+
+
+
     }
 }

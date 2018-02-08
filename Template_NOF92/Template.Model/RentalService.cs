@@ -32,6 +32,16 @@ namespace Template.Model
             return Container.Instances<Rental>().Where(r => r.DateReturnBy >= DateTime.Today);
         }
 
+        public IQueryable<Rental> FindRentalByCustomerName(string name)
+        {
+            
+            return AllRentals().Where(c => c.Customer.Name.ToUpper().Contains(name.ToUpper()));
+        }
+        public IQueryable<Rental> FindRentalByFilmtitle(string name)
+        {
+           
+            return AllRentals().Where(c => c.Film.FilmTitle.ToUpper().Contains(name.ToUpper()));
+        }
 
 
     }
