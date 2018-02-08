@@ -45,7 +45,7 @@ namespace Template.SeedData
             return customer;
         }
 
-        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned)
+        private Rental AddNewRental(Customer customer, Film film,decimal price,DateTime dateout,DateTime datereturned,DateTime datereturnby)
         {
             var Rental = new Rental() { CustomerID = customer.CustomerID, FilmID = film.FilmID, Price = price,DateOut = dateout,DateReturned = datereturned, DateReturnBy = datereturnby };
             Context.Rentals.Add(Rental);

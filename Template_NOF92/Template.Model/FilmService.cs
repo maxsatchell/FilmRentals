@@ -1,5 +1,6 @@
 ﻿using NakedObjects;
 using System.Linq;
+using System;
 
 
 namespace Template.Model
@@ -32,6 +33,13 @@ namespace Template.Model
             //Filters students to find a match
             return AllFilms().Where(c => c.FilmTitle.ToUpper().Contains(name.ToUpper()));
         }
+
+        public IQueryable<Film> AllFilmsThisYear(DateTime DateReleased)
+        {
+            return Container.Instances<Film>().Where(f => f.DateReleased == DateTime.Now); //Needs to be 1/1/2018
+        }
+
+
     }
 
 }

@@ -20,6 +20,7 @@ namespace Template.Model
         public virtual string Director { get; set; }
         public virtual DateTime? DateReleased { get; set; }
         public virtual string Trailer { get; set; }
+        
 
         public virtual FileAttachment Image
         {
@@ -45,6 +46,7 @@ namespace Template.Model
             AttName = newImage.Name;
             AttMime = newImage.MimeType;
         }
+
 
 
     }
