@@ -38,7 +38,7 @@ namespace Template.Model
         [MemberOrder(40)]
         public virtual Customer Customer { get; set; }
         [NakedObjectsIgnore]
-        public virtual int FilmID { get; set; }
+        public virtual int FilmID { get; set; }                 //Allows Rental to be made and saved; but only in this order
         [MemberOrder(50)]
         public virtual Film Film { get; set; }
 
